@@ -20,7 +20,7 @@ export const useUpdateMe = (
 
   return useMutation<MemberProfile, AxiosError<ApiError>, UpdateMeRequest>({
     mutationFn: async (payload) => {
-      const response = await getApiClient().put<MeEnvelope>('/api/v1/auth/me', payload);
+      const response = await getApiClient().put<MeEnvelope>('/api/v1/auth/profile', payload);
       return idMapper.mapValueForClient(response.data.data);
     },
     ...options,

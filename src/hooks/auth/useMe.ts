@@ -16,7 +16,7 @@ export const useMe = (
   return useQuery<MemberProfile, AxiosError<ApiError>>({
     queryKey: ['auth', 'me'],
     queryFn: async () => {
-      const response = await getApiClient().get<MeEnvelope>('/api/v1/auth/me');
+      const response = await getApiClient().get<MeEnvelope>('/api/v1/auth/profile');
       return idMapper.mapValueForClient(response.data.data);
     },
     ...options,
